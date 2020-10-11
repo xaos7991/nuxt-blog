@@ -32,15 +32,25 @@
         animi ut? Officia, enim magnam?
       </p>
     </main>
-    <footer></footer>
+    <footer>
+      <AppCommentForm />
+      <div class="comments" v-if="true">
+        <AppComment v-for="comment in 4" :key="comment" :comment="comment" />
+      </div>
+      <div class="text-center" v-else>Комментарие нет</div>
+    </footer>
   </article>
 </template>
 
 <script>
+import AppComment from "@/components/main/Comment";
+import AppCommentForm from "@/components/main/CommentForm";
+
 export default {
   validate({ params }) {
     return Boolean(params.id);
   },
+  components: { AppComment, AppCommentForm },
 };
 </script>
 
