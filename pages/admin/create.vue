@@ -30,6 +30,7 @@
     <el-upload
       class="mb"
       drag
+      ref="upload"
       action="https://jsonplaceholder.typicode.com/posts/"
       :on-change="handleImageChange"
       :auto-upload="false"
@@ -99,6 +100,7 @@ export default {
             this.controls.text = "";
             this.controls.title = "";
             this.image = null;
+            this.$refs.upload.clearFiles();
             this.$message.success("Пост создан");
           } catch (e) {
           } finally {
